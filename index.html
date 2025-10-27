@@ -33,16 +33,31 @@
             background: white; 
             cursor: pointer; 
             margin-top: 20px;
+            border-radius: 10px;
         }
         img {
             max-width: 90%;
             max-height: 80vh;
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: opacity 1s;
+            animation: pop 0.6s ease;
         }
         h1, h2 {
             padding: 20px;
+        }
+
+        /* Animación POP */
+        @keyframes pop {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            70% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        /* Efecto final del mensaje */
+        .final-text {
+            font-size: 1.5rem;
+            animation: pop 1s ease;
         }
     </style>
 </head>
@@ -94,6 +109,7 @@
                 index++;
             } else {
                 const final = document.createElement('h2');
+                final.classList.add("final-text");
                 final.innerText = "💖 Este proyecto de amor, lo podrás ver completo muy pronto mi majestad. MWAH MWAH 💖";
                 mensaje.appendChild(final);
                 mostrandoFotos = false;
